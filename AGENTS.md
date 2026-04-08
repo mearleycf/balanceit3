@@ -4,12 +4,41 @@
 
 BalanceIt3 is a private two-user household personal finance app. The north star is a trustworthy, explainable `safe to spend` number calculated from near-term cash flow. It is not a public SaaS product. It has exactly two intended users: a technical admin operator and a non-technical household member.
 
+## How To Start Work
+
+To begin building this project, invoke the orchestrator:
+
+```
+/ai-team-orchestrator
+```
+
+The orchestrator reads this file and the implementation plan, then dispatches the right specialist agents per task. You do not need to invoke specialist agents directly — the orchestrator does that.
+
 ## Implementation Plan
 
 The full step-by-step implementation plan is at:
 `docs/plans/2026-04-08-balanceit3-full-development.md`
 
 All agents should read this plan before starting any implementation work.
+
+## Agent Roles
+
+| Agent | Responsibility |
+|-------|---------------|
+| `ai-team-orchestrator` | **Start here.** Reads the plan, dispatches specialist agents, runs Council of 5 at phase boundaries, manages approval gates |
+| `ai-team-backend-developer` | Domain logic (`src/lib/domain/`), API routes, Prisma schema, auth config |
+| `ai-team-frontend-developer` | UI pages, components, client-side interactions |
+| `ai-team-devops` | Vercel deployment, env config, CI |
+| `ai-team-dev-deploy-specialist` | Deploy artifact preparation, rollout guidance |
+| `ai-team-qa` | Test strategy, test suite design |
+| `ai-team-ux-designer` | UX flow, component design decisions |
+| `ai-team-security-ops-reviewer` | Auth guards, data exposure, input validation |
+| `ai-team-product-acceptance-reviewer` | FR coverage validation |
+| `ai-team-architecture-reviewer` | Layer boundary enforcement, domain separation |
+| `ai-team-code-quality-reviewer` | Code clarity, style, maintainability |
+| `ai-team-test-reliability-reviewer` | Test coverage quality |
+| `ai-team-council-synthesizer` | Merges Council of 5 findings into phase verdict |
+| `ai-team-qc` | Final ship/no-ship recommendation before merge |
 
 ## Product Docs
 
